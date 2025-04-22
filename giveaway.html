@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Giveaway Platform</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Custom styles for glow effects */
+    .glowing-text {
+      animation: glowing 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowing {
+      0% { text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000; }
+      50% { text-shadow: 0 0 10px #ff7300, 0 0 20px #ff7300, 0 0 30px #ff7300, 0 0 60px #ff7300; }
+      100% { text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 100px #ff0000; }
+    }
+    
+    .pulse-animation {
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Header -->
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-bold glowing-text">Join Our Exciting Giveaways</h1>
+    <p class="text-xl text-gray-400 mt-4">Enter to win amazing prizes by simply following the steps below!</p>
+  </header>
+
+  <!-- Giveaway List Section -->
+  <section class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <!-- Giveaway Item 1 -->
+    <div class="bg-gray-800 rounded-lg shadow-xl p-6 hover:scale-105 transform transition-all">
+      <h3 class="text-2xl font-semibold text-blue-400">MCFA ACCOUNT</h3>
+      <p class="text-gray-400 mt-4">Win a Minecraft Full Access Account that will take your gaming to the next level!</p>
+      <a href="#enter-giveaway" class="mt-6 inline-block bg-blue-600 hover:bg-blue-500 py-3 px-6 rounded-lg text-white font-semibold transition-transform transform hover:scale-105">Enter Giveaway</a>
+    </div>
+
+    <!-- Giveaway Item 2 -->
+    <div class="bg-gray-800 rounded-lg shadow-xl p-6 hover:scale-105 transform transition-all">
+      <h3 class="text-2xl font-semibold text-green-400">CRUNCHYROLL ACCOUNT</h3>
+      <p class="text-gray-400 mt-4">Get the latest account of crunchyroll with all the features you've been dreaming of that help you watch Peak Anime for Free!</p>
+      <a href="#enter-giveaway" class="mt-6 inline-block bg-green-600 hover:bg-green-500 py-3 px-6 rounded-lg text-white font-semibold transition-transform transform hover:scale-105">Enter Giveaway</a>
+    </div>
+
+    <!-- Giveaway Item 3 -->
+    <div class="bg-gray-800 rounded-lg shadow-xl p-6 hover:scale-105 transform transition-all">
+      <h3 class="text-2xl font-semibold text-purple-400">VPS AND WINDOWS RDP</h3>
+      <p class="text-gray-400 mt-4">You can get Windows RDP and Ubantu VPS for Hosting Your BOT</p>
+      <a href="#enter-giveaway" class="mt-6 inline-block bg-purple-600 hover:bg-purple-500 py-3 px-6 rounded-lg text-white font-semibold transition-transform transform hover:scale-105">Enter Giveaway</a>
+    </div>
+  </section>
+
+  <!-- Enter Giveaway Form -->
+  <section id="enter-giveaway" class="bg-gray-800 py-10 px-6 rounded-lg max-w-lg mx-auto mb-16">
+    <h2 class="text-3xl font-semibold text-center text-blue-400">Enter the Giveaway</h2>
+    <form id="giveaway-form" class="mt-8 space-y-6" onsubmit="handleFormSubmit(event)">
+      <label for="name" class="block text-xl">Your Name</label>
+      <input type="text" id="name" class="w-full p-4 bg-gray-700 text-white rounded-lg border border-gray-600 focus:ring-2 focus:ring-blue-500" required>
+
+      <label for="email" class="block text-xl">Your Email</label>
+      <input type="email" id="email" class="w-full p-4 bg-gray-700 text-white rounded-lg border border-gray-600 focus:ring-2 focus:ring-blue-500" required>
+
+      <label class="flex items-center text-xl space-x-3">
+        <input type="checkbox" id="follow" class="text-blue-500" required>
+        <span class="text-gray-300">Join us on <a href="https://discord.gg/SQDWzXEHCM" target="_blank" class="text-blue-400">Discord</a></span>
+      </label>
+
+      <button type="submit" class="w-full py-4 bg-green-600 text-white rounded-lg text-xl hover:bg-green-500 transition-all transform hover:scale-105">
+        Submit Entry
+      </button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 bg-gray-900 mt-16">
+    <p class="text-gray-500">&copy; 2025 Demon Rewards. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Form Submission and Validation -->
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const follow = document.getElementById('follow').checked;
+
+      if (!follow) {
+        alert('You must follow us on Twitter to enter the giveaway!');
+        return;
+      }
+
+      // Success message
+      alert(`Thank you for entering, ${name}! We have sent a confirmation to ${email}.`);
+
+      // Reset form
+      document.getElementById('giveaway-form').reset();
+    }
+  </script>
+</body>
+</html>
